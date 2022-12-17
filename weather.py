@@ -20,8 +20,17 @@ def pesquisa_clima(city):
     descricao = dic_requisicao['weather'][0]['description']
     temperatura = dic_requisicao['main']['temp'] - 273.15
     
-    return descricao, int(temperatura)
+    return descricao
 
     # exibindo resultados do filtro
-    #print(descricao , f"{int(temperatura)}°C")
+    #print(descricao)
     
+def pesquisa_temperatura(city):
+    API_key = "0e77ea7de532fd9b6703a7be59a2c865"
+    link = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_key}&lang=pt_br"
+    requisicao = requests.get(link)
+    dic_requisicao = requisicao.json()
+    temperatura = dic_requisicao['main']['temp'] - 273.15
+    #print(f"{int(temperatura)}°C")
+    
+    return (f"{int(temperatura)}°C")
