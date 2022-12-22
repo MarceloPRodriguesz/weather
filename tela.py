@@ -16,51 +16,15 @@ co5 = "#e85151"   # red / vermelha
 fundo = "#3b3b3b"
 
 def main():
-    # Metodos
-    def adiciona_icone(clima):
-        if  clima == "nublado" or clima == "nuvens dispersas" or clima == "algumas nuvens":
-            icone_clima = PhotoImage(file='Imagens\parcialmente_nublado.png')
-            lbl_clima = Label(janela,bg=fundo )
-            lbl_clima.image = icone_clima
-            lbl_clima.config(image= icone_clima)
-            lbl_clima.place(x= 185, y= 145)
-            
-        if  clima == "neve":
-            icone_clima = PhotoImage(file='Imagens\ineve.png')
-            lbl_clima = Label(janela,bg=fundo )
-            lbl_clima.image = icone_clima
-            lbl_clima.config(image= icone_clima)
-            lbl_clima.place(x= 185, y= 145)
-            
-        if  clima == "chuva moderada" or clima == "chuva leve" or "chuva forte":
-            icone_clima = PhotoImage(file='Imagens\chuva.png')
-            lbl_clima = Label(janela,bg=fundo )
-            lbl_clima.image = icone_clima
-            lbl_clima.config(image= icone_clima)
-            lbl_clima.place(x= 185, y= 145)
-            
-        if  clima == "névoa" or clima == "neblina":
-            icone_clima = PhotoImage(file='Imagens\inevoa.png')
-            lbl_clima = Label(janela,bg=fundo )
-            lbl_clima.image = icone_clima
-            lbl_clima.config(image= icone_clima)
-            lbl_clima.place(x= 185, y= 145)
-            
-        if  clima == "céu limpo":
-            icone_clima = PhotoImage(file='Imagens\ensolarado.png')
-            lbl_clima = Label(janela, bg=fundo )
-            lbl_clima.image = icone_clima
-            lbl_clima.config(image= icone_clima)
-            lbl_clima.place(x= 185, y= 145)
-        return
-            
-        
+    # Metodos           
     def altera_temperatura(clima, temperatura, city):
         tempo_atual.config(text= clima, fg=co0)
         valor_temperatura.config(text= temperatura, fg=co0)
         cidade_local.config(text= city, fg=co0 )
-        adiciona_icone(clima)
-            
+        
+        print(type(clima))
+        
+ 
     def temperatura_atual():
         city = campo_cidade.get()
         # Verifica se campo está em branco e aciona API
@@ -114,7 +78,6 @@ def main():
     cidade_local = Label(janela, text='', anchor='center', font=('Consolas 9 bold'), bg=fundo, fg=fundo )
     cidade_local.place(x=20, y=140)
     
-          
     # janela executando infinitamente
     janela.mainloop()
 
